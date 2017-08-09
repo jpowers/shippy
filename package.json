@@ -5,7 +5,11 @@
   "main": "server.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec",
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "start:watch": "nodemon --debug server.js",
+    "lint:js": "eslint .",
+    "lint:js:watch": "esw . -w --changed",
+    "lint:js:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -26,7 +30,6 @@
     "body-parser": "^1.16.0",
     "botkit": "^0.5.6",
     "botkit-middleware-apiai": "^0.1.1",
-    "botkit-sms": "^1.2.1",
     "botkit-storage-postgres": "^0.1.0",
     "dotenv": "^4.0.0",
     "ejs": "^2.5.5",
@@ -35,6 +38,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.1",
+    "eslint": "^4.4.1",
     "mocha": "^3.5.0",
     "nodemon": "^1.11.0"
   }
