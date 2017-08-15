@@ -14,8 +14,8 @@ describe('get rates', function() {
     return Promise.all([ep.validateAddress(from), ep.validateAddress(to)])
     .then(([fromA, toA]) => ep.processQuote(toA.exact[0], fromA.exact[0], weight))
     .then((shipment) => {
-      console.log(shipment.rates);
-      expect(shipment.rates).to.equal([]);
+      //console.log(shipment.rates);
+      expect(shipment.rates).to.be.a('array');
     });
   });
 });

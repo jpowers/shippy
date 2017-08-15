@@ -9,6 +9,8 @@ var dotenv         = require('dotenv');
 dotenv.load();
 
 //botkit (apres port)
-require('./app/controllers/twilio-sms')
-
-
+if (process.env.NODE_ENV === 'development') {
+  require('./app/controllers/console')
+} else {
+  require('./app/controllers/twilio-sms')
+}
