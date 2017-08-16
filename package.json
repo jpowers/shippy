@@ -1,6 +1,9 @@
 {
   "name": "shippy",
   "version": "0.1.0",
+  "engines": {
+    "node": "v6.11.1"
+  },
   "description": "A bot for managing shipments",
   "main": "server.js",
   "scripts": {
@@ -31,14 +34,23 @@
     "botkit": "^0.5.6",
     "botkit-middleware-apiai": "^0.1.1",
     "botkit-storage-postgres": "^0.1.0",
+    "debug": "^3.0.0",
     "dotenv": "^4.0.0",
     "ejs": "^2.5.5",
     "express": "^4.14.1",
-    "request": "^2.79.0"
+    "pg": "^7.1.2",
+    "pg-hstore": "^2.3.2",
+    "request": "^2.79.0",
+    "sequelize": "^4.5.0"
   },
   "devDependencies": {
     "chai": "^4.1.1",
     "eslint": "^4.4.1",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-filenames": "^1.2.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-watch": "^3.1.2",
     "mocha": "^3.5.0",
     "nodemon": "^1.11.0"
   }

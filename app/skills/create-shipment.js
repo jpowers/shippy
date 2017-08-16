@@ -14,12 +14,12 @@ module.exports = (controller) => {
     //next message message.fulfillment.speech
     //console.log("Message: ", message);
     //console.log("Bot: ", bot);
-    bot.reply(message, 'Hello, I just need to ask a few questions about your shipment.');
+    //Store user
     bot.startConversation(message, askLocationTo);
   });
 
   const askLocationTo = (response, convoTo) => {
-    convoTo.ask("Where are you shiping the package to?", (response, convoTo) => {
+    convoTo.ask("Where are you shipping the package to (e.g. 123 main st boston ma)?", (response, convoTo) => {
       // validate address
       checkAddress('locationTo', response, convoTo).then(() => {
         console.log('Res from checkAdress To');
@@ -44,7 +44,8 @@ module.exports = (controller) => {
       ep.processQuote(convo.vars.locationTo, convo.vars.locationFrom, convo.vars.weight).then((shipment) => {
         //console.log(shipment);
         convo.setVar('shipmentId', shipment.id);
-        convo.say("Here are some services I can offer.");
+        convo.setVar('rates', shipment.rates);
+        convo.say("Here are some shipping services.");
         convo.say(formatQuote(shipment.rates).join('\n'));
         convo.next();
       }).catch(error => console.log('Quote error: ', error));
