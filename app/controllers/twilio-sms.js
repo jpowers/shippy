@@ -5,7 +5,8 @@ const controller = Botkit.twiliosmsbot({
   account_sid: process.env.TWILIO_ACCOUNT_SID,
   auth_token: process.env.TWILIO_AUTH_TOKEN,
   twilio_number: process.env.TWILIO_NUMBER,
-  debug: true
+  debug: true,
+  stats_optout: true
 });
 
 const bot = controller.spawn({});
@@ -20,5 +21,4 @@ controller.setupWebserver(process.env.PORT, (err, webserver) => {
 });
 
 // include base controller
-require('../skills/create-shipment')(controller);
-
+require('../skills/create-quote')(controller);

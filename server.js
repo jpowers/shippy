@@ -1,12 +1,11 @@
 // modules =================================================
-const dotenv = require('dotenv');
-
-// configuration ===========================================
-
 // load environment variables,
 // either from .env files (development),
 // heroku environment in production, etc...
-dotenv.load();
+require('dotenv').load();
+
+// configuration ===========================================
+
 
 // botkit (apres port)
 if (process.env.NODE_ENV === 'development') {
