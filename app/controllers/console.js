@@ -6,4 +6,4 @@ const controller = Botkit.consolebot({
   stats_optout: true
 });
 controller.spawn();
-require('../skills/create-quote')(controller);
+require('../skills/create-shipment')(controller, {name: 'console'});

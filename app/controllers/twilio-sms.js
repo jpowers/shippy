@@ -9,6 +9,10 @@ const controller = Botkit.twiliosmsbot({
   stats_optout: true
 });
 
+const platform = {
+  name: 'twilio'
+};
+
 const bot = controller.spawn({});
 
 controller.setupWebserver(process.env.PORT, (err, webserver) => {
@@ -21,4 +25,4 @@ controller.setupWebserver(process.env.PORT, (err, webserver) => {
 });
 
 // include base controller
-require('../skills/create-quote')(controller);
+require('../skills/create-shipment')(controller, platform);
